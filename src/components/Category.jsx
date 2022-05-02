@@ -53,7 +53,7 @@ const SLink = styled(NavLink)`
 
     svg {
         color: white;
-        font-size: 1,5rem;
+        font-size: 1.5rem;
     }
 
     &.active {

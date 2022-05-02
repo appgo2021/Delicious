@@ -23,37 +23,34 @@ const Veggie = () => {
 
       localStorage.setItem('veggie', JSON.stringify(data.recipes));
       setVeggie(data.recipes)
-      console.log(data.recipes)
     }
   };
   return (
-    <div>
-      <Wrapper>
-        <h3>Our Vegetarian Picks</h3>
+    <Wrapper>
+      <h3>Our Vegetarian Picks</h3>
 
-        <Splide options={{
-          perPage: 3,
-          arrows: false,
-          pagination: false,
-          drag: "free",
-          gap: "5rem"
+      <Splide options={{
+        perPage: 4,
+        arrows: false,
+        pagination: false,
+        drag: "free",
+        gap: "5rem"
         }}>
-          {veggie.map((recipe) => {
-            return(
-              <SplideSlide key={recipe.id}>
-                <Card>
-                  <Link to={'/recipe/' + recipe.id}>
-                    <p>{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title}></img>
-                    <Gradient/>
-                  </Link>
-                </Card>
-              </SplideSlide>
-            );
-          })}
-        </Splide>
-      </Wrapper>
-    </div>
+        {veggie.map((recipe) => {
+          return(
+            <SplideSlide key={recipe.id}>
+              <Card>
+                <Link to={'/recipe/' + recipe.id}>
+                  <p>{recipe.title}</p>
+                  <img src={recipe.image} alt={recipe.title}></img>
+                  <Gradient/>
+                </Link>
+              </Card>
+            </SplideSlide>
+          );
+        })}
+      </Splide>
+    </Wrapper>
   )
 }
 
@@ -76,7 +73,7 @@ const Card = styled.div`
     object-fit: cover;
   }
 
-  p{
+  p {
     position: absolute;
     z-index: 10;
     left: 50%;
